@@ -49,8 +49,9 @@ const Login = () => {
         className="bg-white shadow-md rounded-lg p-8 w-full max-w-sm"
       >
         <h2 className="text-2xl font-semibold text-center mb-6">
-          Welcome Back 👋
+          Welcome Back 
         </h2>
+       
 
         {error && (
           <div className="text-red-600 text-sm mb-3 bg-red-50 border border-red-200 rounded p-2">
@@ -88,10 +89,11 @@ const Login = () => {
         <button
           type="submit"
           disabled={loading}
-          className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition disabled:opacity-50"
+          className="w-full bg-blue-600 text-white py-2 rounded hover:bg-blue-700 transition disabled:opacity-50 cursor-pointer"
         >
           {loading ? "Logging in..." : "Login"}
         </button>
+         <p className="text-xs mt-4 text-gray-500 ">user@gmail.com , user@123 </p>
       </form>
     </div>
   );

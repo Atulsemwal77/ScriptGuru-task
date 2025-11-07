@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useNavigate } from "react-router-dom";
 
 const API_BASE =
   import.meta.env.VITE_BACKEND_URL || "http://localhost:3434/api";
@@ -18,6 +19,8 @@ export default function BoardsApp() {
   const [todoPriority, setTodoPriority] = useState("Low");
   const [todoDueDate, setTodoDueDate] = useState("");
   const [todoAssignedTo, setTodoAssignedTo] = useState("");
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     fetchBoards();
@@ -125,7 +128,16 @@ export default function BoardsApp() {
       console.error(err);
       setError("Failed to delete todo");
     }
-  }
+  }  
+
+
+
+const handleLogout = () => {
+  localStorage.removeItem("token");
+  localStorage.removeItem("user");
+  navigate("/login");
+};
+
 
   return (
     <div className="min-h-screen bg-gray-100 p-6">
@@ -395,6 +407,11 @@ export default function BoardsApp() {
         </main>
 
         {error && <div className="mt-4 text-red-600">{error}</div>}
+         
+        <div className="md:text-end text-center  text-gray-600 mt-2 ">
+           <button onClick={()=>navigate('/')} className="border px-2 py-1 cursor-pointer">Logout</button>
+        </div>
+
       </div>
     </div>
   );

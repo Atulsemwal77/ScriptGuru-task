@@ -4,7 +4,6 @@ import viteLogo from '/vite.svg'
 import './App.css'
 import BoardsApp from './components/Boards'
 import Login from './components/Login'
-import { Link } from 'react-router-dom'
 
 function App() {
   
@@ -12,8 +11,7 @@ function App() {
   return (
     <>
       {/* <BoardsApp/> */}
-      first login 
-      <Link to ='/login' >Login </Link>
+      <Login/>
     </>
   )
 }
